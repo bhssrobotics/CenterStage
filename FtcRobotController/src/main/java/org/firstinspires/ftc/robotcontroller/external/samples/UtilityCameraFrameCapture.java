@@ -94,6 +94,8 @@ public class UtilityCameraFrameCapture extends LinearOpMode
                     .build();
         }
 
+
+        // this is all where the frame is actually sent i guess
         while (!isStopRequested())
         {
             boolean x = gamepad1.x;
