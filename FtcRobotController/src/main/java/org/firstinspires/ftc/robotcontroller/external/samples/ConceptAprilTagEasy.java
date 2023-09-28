@@ -47,9 +47,11 @@ import java.util.List;
  * Use Android Studio to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list.
  */
+
 @TeleOp(name = "Concept: AprilTag Easy", group = "Concept")
 @Disabled
-public class ConceptAprilTagEasy extends LinearOpMode {
+public class ConceptAprilTagEasy extends LinearOpMode 
+{
 
     private static final boolean USE_WEBCAM = true;  // true for webcam, false for phone camera
 
@@ -64,7 +66,8 @@ public class ConceptAprilTagEasy extends LinearOpMode {
     private VisionPortal visionPortal;
 
     @Override
-    public void runOpMode() {
+    public void runOpMode() 
+    {
 
         initAprilTag();
 
@@ -74,8 +77,10 @@ public class ConceptAprilTagEasy extends LinearOpMode {
         telemetry.update();
         waitForStart();
 
-        if (opModeIsActive()) {
-            while (opModeIsActive()) {
+        if (opModeIsActive()) 
+        {
+            while (opModeIsActive())
+                {
 
                 telemetryAprilTag();
 
@@ -83,9 +88,11 @@ public class ConceptAprilTagEasy extends LinearOpMode {
                 telemetry.update();
 
                 // Save CPU resources; can resume streaming when needed.
-                if (gamepad1.dpad_down) {
+                if (gamepad1.dpad_down) 
+                {
                     visionPortal.stopStreaming();
-                } else if (gamepad1.dpad_up) {
+                } else if (gamepad1.dpad_up) 
+                {
                     visionPortal.resumeStreaming();
                 }
 
@@ -102,16 +109,19 @@ public class ConceptAprilTagEasy extends LinearOpMode {
     /**
      * Initialize the AprilTag processor.
      */
-    private void initAprilTag() {
+    private void initAprilTag() 
+    {
 
         // Create the AprilTag processor the easy way.
         aprilTag = AprilTagProcessor.easyCreateWithDefaults();
 
         // Create the vision portal the easy way.
-        if (USE_WEBCAM) {
+        if (USE_WEBCAM) 
+        {
             visionPortal = VisionPortal.easyCreateWithDefaults(
                 hardwareMap.get(WebcamName.class, "Webcam 1"), aprilTag);
-        } else {
+        } else 
+        {
             visionPortal = VisionPortal.easyCreateWithDefaults(
                 BuiltinCameraDirection.BACK, aprilTag);
         }
